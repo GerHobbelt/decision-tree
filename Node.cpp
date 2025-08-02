@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <typeinfo>
+#include <vector>
 
 // calculate Gini impurity of a vector of outcomes
 float Node::getGiniImpurity(const std::vector<int>& outcomes) {
@@ -20,8 +21,7 @@ float Node::getGiniImpurity(const std::vector<int>& outcomes) {
     const int max =  *std::max_element(outcomes.begin(), outcomes.end());
 
     // initialize length as number of classes
-    int counts[max + 1];
-    std::memset(counts, 0, sizeof(counts));
+	std::vector<int> counts(max + 1, 0);
 
     // count instances of each class in counts array
     for(int i : outcomes) {
